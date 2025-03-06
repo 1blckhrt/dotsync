@@ -1,18 +1,23 @@
 {
   "name": "dotsync",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "dotsync": "src/index.js"
+  },
   "scripts": {
     "lint": "eslint . --ext .js",
     "format": "prettier --write .",
     "fix": "eslint . --ext .js --fix && prettier --write .",
-    "start": "node src/index.js"
+    "build": "pnpm unlink --global && pnpm link --global"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-angular": "^19.6.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-import": "^2.31.0",
@@ -20,10 +25,12 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-unicorn": "^57.0.0",
-    "prettier": "^3.5.3",
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-angular": "^19.6.0",
     "husky": "^9.1.6",
-    "lint-staged": "^15.2.10"
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "commander": "^13.1.0"
   }
 }
